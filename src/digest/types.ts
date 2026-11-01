@@ -34,6 +34,7 @@ export type DigestNight = {
   night: string; // "YYYY-MM-DD", as asked
   rows: DigestRow[]; // one per job, sorted by job (plain string order, a < b)
   badLines: number; // lines that did not parse into a RunLine
+  counts: Record<RunStatus, number>; // good lines per status, e.g. { ok: 10, retry: 4, fail: 1 } on 2026-10-28
 };
 
 // readNight(runsDir, night): DigestNight | null — synchronous, never throws for bad content.
